@@ -1,0 +1,20 @@
+<hr />
+
+<button class="btnCart" (click)="cartBlock = !cartBlock">Cart</button>
+
+<div *ngIf="cartBlock" class="cartBlock">
+  <ul *ngIf="getProductsInCart.getProductsInCart(); else emptyCart">
+    Список купленных товаров:
+    <li
+      class="products"
+      *ngFor="let product of getProductsInCart.getProductsInCart()"
+    >
+      Name: {{ product.name }} Brand: {{ product.brand }} Model:
+      {{ product.model }}
+    </li>
+  </ul>
+</div>
+
+<ng-template #emptyCart>
+  <p>The Cart is empty</p>
+</ng-template>

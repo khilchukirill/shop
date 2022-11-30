@@ -3,10 +3,11 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { FirstComponent } from './first/first.component';
-import { ProductComponent } from './product/product.component';
-import { ProductListComponent } from './product/product-list/product-list.component';
+import { FirstComponent } from './first/components/first.component';
+import { ProductComponent } from './product/Components/product.component';
+import { ProductListComponent } from './product/product-list/Components/product-list.component';
 import { ProductsService } from './product/services/products.service';
+import { CartListComponent } from './cart/cart-list/components/cart-list.component';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { ProductsService } from './product/services/products.service';
     FirstComponent,
     ProductComponent,
     ProductListComponent,
+    CartListComponent,
 
   ],
   imports: [
