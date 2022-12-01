@@ -1,8 +1,8 @@
 <hr />
 
-<button class="btnCart" (click)="cartBlock = !cartBlock">Cart</button>
+<button class="btnCart" (click)="isEmpty = !isEmpty">Cart</button>
 
-<div *ngIf="cartBlock" class="cartBlock">
+<div *ngIf="isEmpty" class="cartBlock">
   <ul *ngIf="getProductsInCart.getProductsInCart(); else emptyCart">
     Список купленных товаров:
     <li

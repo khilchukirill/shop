@@ -1,5 +1,5 @@
 import { Component,  } from '@angular/core';
-import { CartServiceService } from 'src/app/cart/cart-list/services/cart-service.service';
+import { CartServiceService } from 'src/app/cart/services/cart-service.service';
 
 @Component({
   selector: 'app-cart-list',
@@ -7,7 +7,7 @@ import { CartServiceService } from 'src/app/cart/cart-list/services/cart-service
   styleUrls: ['./cart-list.component.scss']
 })
 export class CartListComponent {
-  cartBlock: boolean = false;
+  isEmpty: boolean = false;
 
   constructor(public getProductsInCart: CartServiceService) { 
   }

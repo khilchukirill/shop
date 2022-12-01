@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
-import { ProductModel } from '../../../product/models/product-model';
+import { ProductModel } from '../../products/models/product-model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CartServiceService {
   
-  getProductsInCart (): Array<ProductModel> {
+  getProductsInCart (): Array<ProductModel> | null {
     return [
         {
           name: 'Shaver',

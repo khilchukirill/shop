@@ -1,0 +1,8 @@
+<app-product></app-product>
+<hr />
+<ul>
+  <li class="products" *ngFor="let product of productsService.getProducts()">
+    Name: {{ product.name }} Brand: {{ product.brand }} Model:
+    {{ product.model }}
+  </li>
+</ul>
