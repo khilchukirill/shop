@@ -1,5 +1,6 @@
-import { Component,  } from '@angular/core';
-import { CartServiceService } from 'src/app/cart/services/cart-service.service';
+import {Component, Input,} from '@angular/core';
+import { CartService } from 'src/app/cart/services/cart.service';
+import {ProductModel} from "../../../products/models/product-model";
 
 @Component({
   selector: 'app-cart-list',
@@ -8,8 +9,15 @@ import { CartServiceService } from 'src/app/cart/services/cart-service.service';
 })
 export class CartListComponent {
   isEmpty: boolean = false;
+  @Input() product: ProductModel = {
+    name: '',
+    brand: '',
+    model: '',
+    price: 0
+  };
 
-  constructor(public getProductsInCart: CartServiceService) { 
+
+  constructor(public cartService: CartService) {
   }
 
 }

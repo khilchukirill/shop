@@ -1,5 +1,13 @@
-<h2>{{ product.name }}</h2>
-<div class="product brand">{{ product.brand }}</div>
-<div class="product model">{{ product.model }}</div>
+<div class="productCard">
+    <h2>{{ value.name }}</h2>
+    <div>
+        <div class="item">{{ value.brand }}</div>
+        <div class="item">{{ value.model }}</div>
+        <div class="item">{{ value.price }} USD</div>
+    </div>
 
-<button class="btn" (click)="productComponent($event)">Buy</button>
+
+    <button class="btn" *ngIf="value" (click)="toCart()">Add to Cart</button>
+
+</div>
+

@@ -11,25 +11,29 @@ export class ProductsService {
       {
         name: 'Shaver',
         brand: 'Braun',
-        model: 'ShaverTop'
+        model: 'ShaverTop',
+        price: 1000
       },
     
       {
         name: 'Phone',
         brand: 'Apple',
-        model: 'Iphone 11'
+        model: 'Iphone 11',
+        price: 5000
       },
     
       {
       name: 'Watch',
       brand: 'Apple',
-      model: 'Apple Watch 6'
+      model: 'Apple Watch 6',
+      price: 800
       },
     
       {
         name: 'Headphones',
         brand: 'Apple',
-        model: 'AirPods Pro'
+        model: 'AirPods Pro',
+        price: 1500
       }
     ];
     }
