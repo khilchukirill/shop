@@ -1,19 +1,15 @@
-<button class="btnCart" (click)="isEmpty = !isEmpty">Cart</button>
-
-<div *ngIf="isEmpty" class="cartBlock">
-  <ul *ngIf="cartService.getProductsInCart(); else emptyCart">
-    Список купленных товаров:
-    <li
-      class="products"
-      *ngFor="let product of cartService.getProductsInCart()"
-    >
-      Name: {{ product.name }}
-      Brand: {{ product.brand }}
-      Model: {{ product.model }}
-    </li>
-  </ul>
+<button class="btnCart" (click)="getCartItems(); showCart = !showCart">Cart</button>
+<div class="cartCounter">
+    <div class="cart_amount">Количество товаров в корзине: {{countItems}}</div>
+    <div class="cart_sum">Сумма товаров в корзине:{{getItemSum}}</div>
+</div>
+<div class="cartItems" *ngFor="let cartItem of getCartItems(); let i = index">
+    <app-cart-item [cartItem]="cartItem"
+                   [showCart]="showCart"
+                   [index]="i">
+    </app-cart-item>
 </div>
 
-<ng-template #emptyCart>
-  <p>The Cart is empty</p>
-</ng-template>
+
+
+

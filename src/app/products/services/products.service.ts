@@ -1,4 +1,4 @@
-import { Injectable, OnInit } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { ProductModel } from '../models/product-model';
 
 @Injectable({
@@ -8,33 +8,10 @@ export class ProductsService {
 
   getProducts(): Array<ProductModel> {
     return [
-      {
-        name: 'Shaver',
-        brand: 'Braun',
-        model: 'ShaverTop',
-        price: 1000
-      },
-    
-      {
-        name: 'Phone',
-        brand: 'Apple',
-        model: 'Iphone 11',
-        price: 5000
-      },
-    
-      {
-      name: 'Watch',
-      brand: 'Apple',
-      model: 'Apple Watch 6',
-      price: 800
-      },
-    
-      {
-        name: 'Headphones',
-        brand: 'Apple',
-        model: 'AirPods Pro',
-        price: 1500
-      }
+        new ProductModel(1, 'Shaver', 'Braun', 'ShaverTop', 1000, true),
+        new ProductModel(2,'Phone', 'Apple', 'Iphone 11', 1500, true),
+        new ProductModel(3,'Watch', 'Apple', 'AppleWatch 6', 1200, true),
+        new ProductModel(4,'Tablet', 'Ipad', 'Pro 11.2', 800, true)
     ];
     }
 }

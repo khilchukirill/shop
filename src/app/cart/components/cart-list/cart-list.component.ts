@@ -1,23 +1,41 @@
-import {Component, Input,} from '@angular/core';
+import {Component, Input, OnInit,} from '@angular/core';
 import { CartService } from 'src/app/cart/services/cart.service';
-import {ProductModel} from "../../../products/models/product-model";
+import {DataService} from "../../../core/services/data.service";
+import {Subscription} from "rxjs";
+import {CartModel} from "../../models/cart-model";
 
 @Component({
   selector: 'app-cart-list',
   templateUrl: './cart-list.component.html',
-  styleUrls: ['./cart-list.component.scss']
+  styleUrls: ['./cart-list.component.scss'],
 })
-export class CartListComponent {
-  isEmpty: boolean = false;
-  @Input() product: ProductModel = {
-    name: '',
-    brand: '',
-    model: '',
-    price: 0
-  };
+export class CartListComponent implements OnInit{
+  showCart: boolean = false;
 
+  public get getItemSum(): number  {
+    return this.cartService.getItemSum();
+  }
 
-  constructor(public cartService: CartService) {
+  public get countItems(): number {
+    return this.cartService.countItems()
+  }
+
+  private subscription = new Subscription()
+
+  constructor(private dataService: DataService,
+              private cartService: CartService) {
+  }
+
+  getCartItems(): Array<CartModel> {
+    return this.cartService.getProductsInCart();
+  }
+
+  ngOnInit() {
+    this.subscription = this.dataService.channel$.subscribe(data =>
+    {
+      let cartItem = new CartModel(data.id, data.brand, data.model, data.name, data.price, 0);
+      this.cartService.addToCart(cartItem)
+    });
   }
 
 }

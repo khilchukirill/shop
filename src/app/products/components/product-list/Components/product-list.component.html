@@ -1,6 +1,7 @@
 <div class="products" *ngFor="let product of products">
     <app-product [value]="product"
-                  (sendToParent)="addToCart($event)">
+                 (sendToParent)="addToCart($event)"
+                 class="appProduct">
     </app-product>
 
   </div>

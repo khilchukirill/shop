@@ -6,15 +6,18 @@
   color: white;
   border-radius: 5%;
   border: none;
+  cursor: pointer;
 }
 
 .productCard {
-  margin: 5px;
+  box-sizing: border-box;
   height: 100%;
   width: 200px;
   border: 1px black solid;
   list-style-type: none;
   border-radius: 5%;
+  display: flex;
+  justify-content: space-between;
 }
 
 h2 {
@@ -23,4 +26,15 @@ h2 {
 
 .item {
   margin-left: 10px;
+}
+
+.count {
+  margin: 10px 0 10px 10px;
+  display: inline-block;
+  background-color: cyan;
+  font-size: 15px;
+  height: 15px;
+  width: 15px;
+  border-radius: 100%;
+  text-align: center;
 }

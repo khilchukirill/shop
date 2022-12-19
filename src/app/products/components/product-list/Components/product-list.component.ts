@@ -1,24 +1,26 @@
-import { Component, Input, Output} from '@angular/core';
+import { Component } from '@angular/core';
 import { ProductsService } from 'src/app/products/services/products.service';
 import { ProductModel } from 'src/app/products/models/product-model';
-import {CartService} from "../../../../cart/services/cart.service";
+import {BaseModel} from "../../../../core/models/base-model";
+import {DataService} from "../../../../core/services/data.service";
 
 @Component({
   selector: 'app-product-list',
   templateUrl: './product-list.component.html',
   styleUrls: ['./product-list.component.scss'],
-
 })
 export class ProductListComponent {
 
-products: Array<ProductModel>;
+products: Array<ProductModel> = new Array<ProductModel>();
 
-  constructor(public productsService: ProductsService,
-              public cartService: CartService) {
+  constructor(private productsService: ProductsService,
+              private dataService: DataService) {
     this.products = productsService.getProducts();
-    console.log(this.products);
   }
-  addToCart(product: ProductModel): void {
-    this.cartService.addToCart(product);
+  addToCart(data: BaseModel) {
+    this.dataService.putData(data);
   }
 }
+
+
+

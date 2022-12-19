@@ -1,0 +1,28 @@
+<div class="cartWrapper" *ngIf="showCart">
+
+    <div appHighlight class="cartItems__wrapper"
+    >
+        <button class="cartItems__close" (click)="removeItem(index)">X</button>
+        <h2>{{cartItem.name}}</h2>
+            <div class="cartItem">
+                {{cartItem.brand}}<br>
+                {{cartItem.model}}<br>
+                {{cartItem.price}} USD<br>
+            </div>
+        <button
+                class="cartItem__counter"
+                (click)="decreaseItem()"
+        >-
+        </button>
+
+        {{cartItem.count}}
+
+        <button
+                class="cartItem__counter"
+                (click)="increaseItem()"
+        >+
+        </button>
+
+        <div class="cartItem__sum"> Total price: {{cartItem.count * cartItem.price}} USD</div>
+    </div>
+</div>

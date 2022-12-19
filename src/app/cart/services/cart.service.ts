@@ -1,26 +1,43 @@
 import { Injectable } from '@angular/core';
-import { ProductModel } from '../../products/models/product-model';
+import {CartModel} from "../models/cart-model";
 
 @Injectable({
   providedIn: 'root'
 })
 export class CartService {
+    cartItems: Array<CartModel> = [];
 
-    productsInCart: Array<ProductModel> = [];
 
-    product: ProductModel;
-
-  getProductsInCart (): Array<ProductModel> | null {
-    if(this.productsInCart.length > 0) {
-        return this.productsInCart;
+  getProductsInCart (): Array<CartModel> {
+    if(this.cartItems.length > 0) {
+        return this.cartItems;
     } else  {
-        return null;
+        return [];
     }
-
   }
 
-    addToCart(product: ProductModel): void {
-    this.productsInCart.push(product);
-    }
+  addToCart(cartItem: CartModel): void {
+      cartItem.count = 1;
+      if (this.cartItems.find(arrayItem => arrayItem.id === cartItem.id)) {
+          cartItem.count++
+      } else {
+          this.cartItems.push(cartItem);
+      }
+  }
 
+  countItems(): number {
+      return this.cartItems.length
+  }
+
+  getItemSum(): number {
+      let itemSum:number = 0;
+      for (let i = 0; i < this.cartItems.length; i++) {
+          itemSum += this.cartItems[i].price * this.cartItems[i].count;
+      }
+      return itemSum;
+  }
+
+  removeItem(index: number): void {
+      this.cartItems.splice(index, 1)
+  }
 }

@@ -1,7 +1,11 @@
-export interface ProductModel {
-    name: string;
-    brand: string;
-    model: string;
+import {BaseModel} from "../../core/models/base-model";
 
-    price: number;
+export class ProductModel implements BaseModel {
+    constructor(public id:number,
+                public name:string,
+                public brand: string,
+                public model:string,
+                public price:number,
+                public isAvailable:boolean
+    ) { }
 }
